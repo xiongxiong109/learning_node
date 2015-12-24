@@ -1,0 +1,27 @@
+{
+  "name": "node_study",
+  "description": "learning node",
+  "main": "app.js",
+  "authors": [
+    "xiongjianqiao"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "study"
+  ],
+  "moduleType": [],
+  "homepage": "localhost",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "/public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "underscore": "~1.8.3"
+  }
+}
