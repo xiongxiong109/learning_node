@@ -1,5 +1,8 @@
 extends layout
-
 block content
-  h1= title
-  p Welcome to #{title}
+	.wrap
+		.jumbotron
+			h1 #{title}
+			p	欢迎来到#{title}的世界
+			a(href="#{link}" class="btn btn-primary btn-lg") Learn More
+	script seajs.use('/js/index')

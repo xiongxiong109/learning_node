@@ -1,0 +1,22 @@
+extends layout
+block content
+	.container.alert.alert-warning
+		h1.text-center #{title}
+		form.form-horizontal(action="/admin/loginCheck" method="post")
+			.form-group
+				label(for="username" class="control-label col-sm-2") 用户名
+				.col-sm-10
+					input(type="text" name="username" class="form-control")
+			.form-group
+				label(for="password" class="control-label col-sm-2") 密码
+				.col-sm-10
+					input(type="password" name="password" class="form-control")
+			.form-group
+				.col-sm-offset-2.col-sm-10
+					.checkbox
+						label(for="save")
+							input(type="checkbox" name="save" id="save")
+							|5天内自动登录
+			.form-group
+				.col-sm-offset-2.col-sm-10
+					input(type="submit" name="smt" value="登录" class="btn btn-lg btn-default")

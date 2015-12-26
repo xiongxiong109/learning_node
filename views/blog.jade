@@ -1,0 +1,6 @@
+extends layout
+block content
+	h1 技术学习列表
+	.list-group
+		- for (var i=0;i<list.length;i++)
+			a.list-group-item(href="/blog/#{i}") #{list[i].title}
