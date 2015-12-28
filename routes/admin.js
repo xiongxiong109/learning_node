@@ -47,7 +47,8 @@ router.get('/write',function(req,res){
 router.post('/write',function(req,res){
 	var json={
 		title:req.body.title,
-		content:req.body.content
+		content:req.body.content,
+		createTime:new Date()
 	}
 	Blog.create(json,function(err){
 		if(!err){

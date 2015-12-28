@@ -13,11 +13,32 @@ router.get('/', function(req, res, next) {
 
 //文章列表页
 router.get('/blog',function(req,res){
-	Blog.fetch(function(err,data){
+	var searchValue=req.query.search;
+	if(!searchValue){//默认查询所有数据
+		Blog.fetch(function(err,data){
+			if(!err){
+				res.render('blog',{list:data});
+			}
+			else{
+				res.render('error',{error:error});
+			}
+		});
+	}else{//模糊查询
+		Blog.findByTitle(searchValue,function(err,list){
+			if(!err){
+				res.render('blog',{list:list});
+			}
+		});
+	}
+});
+
+//文章详情页
+router.get('/blog/:id',function(req,res){
+	var _id=req.params.id;
+	Blog.findById(_id,function(err,list){
 		if(!err){
-			res.render('blog',{list:data});
+			res.render('blog_detail',{data:list})
 		}
 	});
 });
-
 module.exports = router;
