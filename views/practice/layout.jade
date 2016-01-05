@@ -1,0 +1,13 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title= title
+		link(rel="stylesheet", href="/lib/bootstrap/dist/css/bootstrap.min.css")
+		link(rel="stylesheet", href="/lib/bootstrap-select/dist/css/bootstrap-select.min.css")
+		link(rel='stylesheet', href='/css/style.css')
+	body
+		block content
+		script(src="/js/sea.js")
+		script(src="/js/sea.config.js")
+		script seajs.use('/js/practice/select')

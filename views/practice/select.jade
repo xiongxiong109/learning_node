@@ -1,0 +1,19 @@
+extends layout
+block content
+	h2
+		| 电影管理
+		small (bootstrap下拉列表插件)
+		button.btn.btn-primary.btn-sm 新增电影
+	form.form-horizontal.well.well-lg(method="get")
+		.form-group
+			label(for="movie-name" class="label-control") 电影名称
+			input(type="text" name="movie-name" id="movie-name" placeholder="精确筛选" class="form-control")
+		.form-group
+			label(for="type" class="label-form") 电影类型
+			select(name="type" class="selectpicker show-tick" value="#{value}")
+				option
+				option 科幻
+				option 剧情
+				option 犯罪
+				option 西部
+				option 爱情

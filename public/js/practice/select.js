@@ -1,0 +1,11 @@
+define('/js/practice/select',function(require,exports,module){
+	require('bootstrap');
+	require.async('selector',function(){
+		$(".selectpicker").selectpicker({
+			noneSelectedText:'请选择',
+			size:3,
+			style:'btn-info'
+		});
+		$('.selectpicker').selectpicker('val',$('.selectpicker').attr('value'));
+	});
+});
