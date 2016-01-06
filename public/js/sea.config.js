@@ -5,6 +5,7 @@ seajs.config({
 		"jquery":"/lib/jquery/dist/jquery.min",
 		"bootstrap":"/lib/bootstrap/dist/js/bootstrap.min",
 		"selector":"/lib/bootstrap-select/dist/js/bootstrap-select.min",
+		"paginator":"/lib/bootstrap-paginator/bootstrap-paginator.min",
 		"underscore":"/lib/underscore/underscore-min"
 	},
 	preload:['jquery'],
