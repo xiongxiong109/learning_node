@@ -3,7 +3,7 @@ block content
 	.container.well.well-lg
 		h4 nodejs 配合bootstrap 制作分页逻辑
 		.list-group
-			a.list-group-item(href="javascript:void(0);") 列表1
-			a.list-group-item(href="javascript:void(0);") 列表2
-		.page.center
+			- for(var i in data)
+				a.list-group-item(href="javascript:void(0);") #{data[i].title}
+		ul.page.center(data-total="#{totalPage}" data-curpage="#{curPage}" data-number="#{number}")
 	script seajs.use('/js/practice/paginator')
