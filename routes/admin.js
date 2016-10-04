@@ -50,7 +50,7 @@ router.post('/write',function(req,res){
 		content:req.body.content,
 		createTime:new Date()
 	}
-	Blog.create(json,function(err){
+	Blog.create(json,function(err, item){
 		if(!err){
 			console.log('blog has been created');
 			res.redirect('/blog');

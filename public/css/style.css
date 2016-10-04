@@ -10,3 +10,7 @@ a {
 	padding: 45px 15px 15px;
 	background-color: #eee;
 }
+
+.list-group-item {
+	display: block;
+}
