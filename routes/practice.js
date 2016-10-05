@@ -46,14 +46,18 @@ router.get('/spider', (req, res) => {
 			spider = require('../spider'),
 			$;
 	var url = 'https://movie.douban.com/subject/25815034/';
-
+	// var url = 'https://www.baidu.com';
 	spider(url, function(rst) {
 
 		$ = cheerio.load(rst);
 		var $h1 = $('h1');
-		$h1.html(`${$h1.html()} spider`).css('background-color', '#ccc');
+		$h1.html(`${$h1.html()} spider`).css({
+			'background-color': '#c00',
+			'color': '#fff'
+		});
 
-		res.render('practice/spider', {content: $h1.html(), title: 'spider'});
+		// 可以在抓取的网页中输入任何内容, 并改变dom的样式和结构
+		res.render('practice/spider', {content: $.html(), title: 'spider'});
 	});
 
 })
