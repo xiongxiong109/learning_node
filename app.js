@@ -4,6 +4,25 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+// 使用log4js来保存log日志
+var log4js = require('log4js');
+
+// 配置log4
+log4js.configure({
+  appenders: [
+    { type: 'console' }, //控制台输出
+    {
+      type: 'file', //文件输出
+      filename: `logs/access_${new Date().getTime()}.log`, 
+      maxLogSize: 1024,
+      backups:3,
+      category: 'normal' 
+    }
+  ]
+});
+
+var logger = log4js.getLogger('normal');
+logger.setLevel('INFO');
 
 /*定义一个新的重定向组,需要在app.js中指定require的js文件,指定的js文件中需要用到express.Router()
 并将module.exports=router给暴露出来,然后在app.js中指定app.use('/path',redirectFile);就可以将请求发送到
@@ -23,7 +42,9 @@ app.set('view engine', 'jade');
 app.locals.pretty=true;
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+// app.use(logger('dev'));
+// 修改log输出
+app.use(log4js.connectLogger(logger, {level:log4js.levels.INFO}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
